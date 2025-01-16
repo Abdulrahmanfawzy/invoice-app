@@ -1,0 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+body{
+    background: #141625;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+.container .aside{
+    width: 80px;
+    background: #252945;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.aside img{
+    width: 100%;
+}
+.aside .list li{
+    margin-bottom: 40px;
+    text-align: center;
+}
+.list li i{
+    color: #a2a4af;
+}
+.aside .list a{
+    color: #a2a4af;
+    font-size: 18px;
+    text-decoration: none;
+}
+.list .moon i{
+    cursor: pointer;
+}
+.aside .list hr{
+    height: 1px;
+    border: none;
+    background: hsla(0,0%,100%,.2);
+}
+.aside .list .profile{
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #7c5dfa;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-radius: 50%;
+}
+.aside .list .profile i{
+    color: #FFF;
+}
+
+.container .invoice_div{
+    width: 70%;
+    color: #FFF;
+}
+
+.invoice_div .invoice_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.title_left h2{
+    font-size: 3rem;
+    font-weight: 500;
+}
+.title_left p{
+    color: hsla(0,0%,100%,.6);
+    font-size: 14px;
+    margin-top: -5px;
+}
+.title_right{
+    display: flex;
+    align-items: center;
+}
+.title_right .invoice_add{
+    margin-left: 30px;
+}
+.filter label:first-child{
+    font-size: 14px;
+    cursor: pointer;
+}
+.title_right .filter{
+    position: relative;
+}
+.filter i{
+    font-size: 12px;
+    margin-left: 4px;
+    transition: .4s ease-in-out;
+}
+.filter i.icon_active{
+    transform: rotate(180deg);
+}
+.filter .filter_inpt{
+    padding: 20px;
+    background: #252945;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    width: 130px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.filter .filter_inpt.active{
+    animation: displayable .5s ease-in-out forwards;
+}
+
+@keyframes displayable {
+    0%{
+        top: 50px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    100%{
+        top: 35px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.filter_inpt .draft:not(:last-child){
+    margin-bottom: 10px;
+}
+.filter_inpt label{
+    font-size: 14px;
+}
+.title_right .invoice_add{
+    width: 180px;
+    background: #7c5dfa;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.invoice_add a{
+    text-decoration: none;
+    color: #FFF;
+    font-size: 16px;
+}
+.invoice_add i{
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.invoice_fixed{
+    width: calc(100% - 80px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #141625;
+    z-index: 12;
+    height: 100vh;
+    overflow-y: auto;
+    opacity: .9;
+    padding-top: 600px;
+    padding-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    display: none;
+}
+.shutTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shutTitle .shutdown{
+    color: #FFF;
+    background: #b14040;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.invoice_fixed form{
+    width: 50%;
+}
+
+.invoice_fixed h2:first-child{
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.invoice_fixed section{
+    color: #7c5dfa;
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+form input{
+    background: #252945;
+    border-radius: 5px;
+    padding: 10px 20px; 
+    outline: none;
+    border: 1px solid hsla(0,0%,100%,.1);
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+form label{
+    display: inline-block;
+    color: #f9f9f9;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+form #street_address{
+    width: 100%;
+}
+
+form .bill_from_three{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bill_from_three div{
+    width: 32%;
+}
+.bill_from_three input{
+    width: 100%;
+}
+
+.bill_to h2{
+    margin-top: 30px;
+    font-size: 18px!important;
+    color: #7c5dfa;
+    font-weight: 600!important;
+    letter-spacing: 1.6px;
+}
+.bill_to #Client_Name{
+    width: 100%;
+}
+.bill_to .bill_to_two{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bill_to_two div{
+    width: 49%
+}
+.bill_to_two input{
+    width: 100%;
+}
+
+.bill_To_three{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bill_To_three div{
+    width: 32%;
+}
+.bill_To_three input{
+    width: 100%;
+}
+
+.bill_To_in_date{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bill_To_in_date div{
+    width: 32%;
+}
+.bill_To_in_date #bill_To_Payment{
+    background: #252945;
+    border-radius: 5px;
+    padding: 10px 20px; 
+    outline: none;
+    border: 1px solid hsla(0,0%,100%,.1);
+    color: #FFF;
+    margin-bottom: 20px;
+    width: 100%;
+}
+form .project{
+    margin-bottom: 50px;
+}
+form #Project_Description{
+    width: 100%;
+}
+
+form .item_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item_list h2{
+    margin-bottom: 20px;
+}
+.item_list div{
+    width: 100%;
+}
+
+.item_flex #trash{
+    width: 18%;
+}
+.item_flex input{
+    width: 90%;
+}
+
+.item_flex i{
+    width: 50px;
+    height: 50px;
+    background: #7c5dfa;
+    color: #FFF;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+}
+.item_flex i:hover{
+    color: #FFF;
+    background: rgb(166, 24, 24);
+}
+
+form #add_new_item{
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    background: #7c5dfa;
+    color: #FFf;
+    margin: 20px auto;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form #add_new_item i{
+    margin-right: 5px;
+}
+
+.invoice_from_local{
+    width: 100%;
+}
+.invoice_from_local .invoice_item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #252945;
+    padding: 25px 15px;
+    color: #FFF;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.invoice_item div{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+.invoice_item .total{
+    text-align: right;
+    width: 20%;
+    font-weight: 900;
+}
+.invoice_item .bill_date{
+    color: hsla(0,0%,100%,.6);
+}
+.invoice_from_local a{
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: .2s ease-in-out;
+}
+.invoice_from_local a:hover{
+    border-color: #7c5dfa;
+}
+
+/* --------------------------------- */
+
+.delete_invoice{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.delete_invoice .close{
+    top: 20px;
+    right: 20px;
+    color: #FFF;
+    background: #b14040;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+.delete_invoice .close:hover{
+    background: #cf6969;
+}
+
+
+.invoice_details{
+    background: #252945;
+    padding: 25px 30px;
+    width: 55%;
+    margin: 100px auto;
+    color: hsla(0,0%,100%,.6);
+    border-radius: 15px;
+    position: relative;
+}
+
+.sender_title h2{
+    color: #7c5dfa;
+}
+.invoice_details h3{
+    color: #FFF;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.sender_first{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0px;
+    flex-wrap: wrap;
+}
+.sender_first div{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+.sender_first .answer{
+    font-weight: 700;
+    color: #FFF;
+}
+.sender_first li{
+    margin-bottom: 7px;
+}
+.sender_details hr{
+    border: 0;
+    outline: 0;
+    height: 1px;
+    background: hsla(0,0%,100%,.06);
+}
+
+.invoice_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.item_details{
+    margin: 20px 0px;
+    background: #141625;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item_details li{
+    margin-top: 12px;
+    font-size: 14px;
+}
+.item_details h4{
+    color: #FFF;
+}
+
+.back{
+    position: absolute;
+    top: -40px;
+    left: 0
+}
+.back a{
+    color: hsla(0,0%,100%,.6);
+    font-size: 14px;
+}
+.back span{
+    font-size: 12px;
+    color: #7c5dfa;
+    margin-right: 10px;
+}

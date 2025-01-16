@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+    
+    <div class="invoice_details">
+        
+        <div class="back">
+            <a href="http://127.0.0.1:5500/index.html"><span><i class="fa-solid fa-angle-left"></i></span> Go back</a>
+        </div>
+    </div>
+    <!-- <script src="/main.js"></script> -->
+
+    <script>
+
+        // close details of invoice
+
+        let close = document.querySelector(".close");
+        // to get id
+        let baseUrl = (window.location).href; // You can also use document.URL
+        let koopId = +baseUrl.substring(baseUrl.lastIndexOf('?') + 1);
+
+        
+            // get array from localstorage
+            let arrofLocal = JSON.parse(window.localStorage.getItem("invoice"));
+
+            // get num of items to print
+            // for (let i = 0; i < arrofLocal[koopId].items.length; i++) {
+            //     console.log(arrofLocal[koopId].items[i]);      
+            // }
+            // console.log(arrofLocal[koopId].items[0]);
+            
+            // get the parent element to put item inside it
+
+            let invoice_details = document.querySelector(".invoice_details");
+
+            let changeItemAccToId = `
+            <div class="delete_invoice">
+                <div class="status">
+                    status:
+                </div>
+                <div class="close" onclick="idOfItem(${koopId})">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </div>
+            <div class="sender_title">
+                <h2>id: ${koopId + 1}</h2>
+                <p>Website Redesign</p>
+                <div class="sender_details">
+                    <h3>sender info</h3>
+                    <div class="sender_first">
+                        <div>
+                            <li>Street: </li>
+                            <li class="answer">${arrofLocal[koopId].BillFromInfo.street_address}</li>
+                        </div>
+                        <div>
+                            <li>PostCode: </li>
+                            <li class="answer">${arrofLocal[koopId].BillFromInfo.bill_from_Post}</li>
+                        </div>
+                        <div>
+                            <li>City: </li>
+                            <li class="answer">${arrofLocal[koopId].BillFromInfo.bill_from_city}</li>
+                        </div>
+                        <div>
+                            <li>Country: </li>
+                            <li class="answer">${arrofLocal[koopId].BillFromInfo.bill_from_Country}</li>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3>
+                        Client Info
+                    </h3>
+                    <div class="sender_first">
+                        <div>
+                            <li>Client Name: </li>
+                            <li class="answer">${arrofLocal[koopId].clientInfo.Client_Name}</li>
+                        </div>
+                        <div>
+                            <li>Street: </li>
+                            <li class="answer">${arrofLocal[koopId].clientInfo.Client_street}</li>
+                        </div>
+                        <div>
+                            <li>PostCode: </li>
+                            <li class="answer">${arrofLocal[koopId].bill_from_city}</li>
+                        </div>
+                        <div>
+                            <li>City: </li>
+                            <li class="answer">${arrofLocal[koopId].bill_To_city}</li>
+                        </div>
+                        <div>
+                            <li>Country: </li>
+                            <li class="answer">${arrofLocal[koopId].bill_from_Country}</li>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="invoice_info">
+                        <div>
+                            <h3>
+                                Invoice Date
+                            </h3>
+                            <li class="answer">
+                                ${arrofLocal[koopId].bill_To_Date}
+                            </li>
+                        </div>
+                        <div>
+                            <h3>
+                                Sent To
+                            </h3>
+                            <li class="answer">
+                                ${arrofLocal[koopId].clientInfo.Client_email}
+                            </li>
+                        </div>
+                        <div>
+                            <h3>
+                                Payment Due
+                            </h3>
+                            <li class="answer">
+                                ${arrofLocal[koopId].bill_from_city}
+                            </li>
+                        </div>
+                    </div>
+                    <hr>
+                    
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>`;
+
+            invoice_details.innerHTML += changeItemAccToId;
+
+        
+
+        function idOfItem(id){
+            let arrofLocalsto = JSON.parse(window.localStorage.getItem("invoice"));
+            arrofLocalsto.splice(id , 1);
+            let x = JSON.stringify(arrofLocalsto);
+            window.localStorage.setItem("invoice" , x);
+            window.location = "http://127.0.0.1:5500/index.html"
+        }
+
+        for (let i = 0; i < arrofLocal[koopId].items.length; i++) {
+            let x = `
+            <div class="item_details">
+                <div>
+                    <h4>Item Name</h4>
+                    <li>${arrofLocal[koopId].items[i].item_name}</li>
+                </div>
+                <div>
+                    <h4>Qty</h4>
+                    <li>${arrofLocal[koopId].items[i].item_qty}</li>
+                </div>
+                <div>
+                    <h4>Price</h4>
+                    <li>${arrofLocal[koopId].items[i].item_Price}</li>
+                </div>
+                <div>
+                    <h4>Total</h4>
+                    <li>${arrofLocal[koopId].items[i].item_total}</li>
+                </div>
+                
+            </div>`
+            document.querySelector(".sender_details").innerHTML += x;
+        }
+    </script>
+</body>
+</html>
